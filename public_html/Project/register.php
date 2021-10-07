@@ -33,26 +33,26 @@ require(__DIR__ . "/../../partials/nav.php")
      //TODO
      $errors = [];
      if(empty($email)){
-         array_push($errors, "Email must be set");
+         flash("Email must be set");
      }
      $email = sanitize_email($email);
      if(!is_valid_email($email)){
-         array_push($errors, "Invalid email address");
+         flash("Invalid email address");
      }
      if(empty($password)){
-        array_push($errors, "Password must be set");
+        flash("Password must be set");
     }
     if(empty($confirm)){
-        array_push($errors, "Confrim must be set");
+        flash("Confrim must be set");
     }
     if(strlen($password) < 8){
-        array_push($errors, "Password must be 8 or more characters");
+        flash("Password must be 8 or more characters");
     }
     if(strlen($password) > 0 && $password !== $confirm){
-        array_push($errors, "Passwords don't match");
+        flash("Passwords don't match");
     }
     if(count($errors) > 0){
-        echo "<pres>" . var_export($errors, true) . "<pres>";
+        flash("<pres>" . var_export($errors, true) . "<pres>");
     }
     else{
         $hash = password_hash($password, PASSWORD_BCRYPT);
@@ -60,10 +60,10 @@ require(__DIR__ . "/../../partials/nav.php")
         $stmt = $db->prepare("INSERT INTO Users (email, password) VALUES (:email, :password)");
         try{
             $stmt->execute([":email" => $email, ":password" => $hash]);
-            echo "You've been registered!";
+            flash("You've been registered!");
         } catch (Exception $e) {
-            echo "There was a problem registering";
-            echo "<pre>" . var_export($e, true) . "<pre>";
+            flash("There was a problem registering");
+            flash("<pre>" . var_export($e, true) . "<pre>");
         }
 
     }
