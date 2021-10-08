@@ -44,9 +44,6 @@ require(__DIR__ . "/../../partials/nav.php")
      if(!is_valid_email($email)){
          flash("Invalid email address");
      }
-     if(!preg_match('/^[a-z0-9_-]{3,30}$/', $username)){
-        flash("Invalid username, must be alphanumeric and in order");
-     }
      if(empty($password)){
         flash("Password must be set");
     }
