@@ -14,6 +14,10 @@ require(__DIR__ . "/../../partials/nav.php")
         <label for="confirm">Confirm</label>
         <input type="password" name="confirm" required minlength="8" />
     </div>
+    <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" required maxlength="30" />
+    </div>
     <input type="submit" value="Register" />
 </form>
 <script>
@@ -30,6 +34,7 @@ require(__DIR__ . "/../../partials/nav.php")
      $email = se($_POST, "email","", false);
      $password = se($_POST, "password", "", false);
      $confirm = se($_POST, "confirm", "", false);
+     $username = se($_POST, "username","", false);
      //TODO
      $errors = [];
      if(empty($email)){
@@ -57,7 +62,7 @@ require(__DIR__ . "/../../partials/nav.php")
     else{
         $hash = password_hash($password, PASSWORD_BCRYPT);
         $db = getDB();
-        $stmt = $db->prepare("INSERT INTO Users (email, password) VALUES (:email, :password)");
+        $stmt = $db->prepare("INSERT INTO Users (email, password, username) VALUES (:email, :password)");
         try{
             $stmt->execute([":email" => $email, ":password" => $hash]);
             flash("You've been registered!");
