@@ -25,7 +25,7 @@
 </script>
 <style>
     .alert-success {
-        background-color: green
+        background-color: orange
     }
 
     .alert-warning {
@@ -37,6 +37,6 @@
     }
 
     .alert-info {
-        background-color: teal;
+        background-color: pink;
     }
 </style>
