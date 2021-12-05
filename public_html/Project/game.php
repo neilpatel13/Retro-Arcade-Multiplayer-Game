@@ -1,3 +1,6 @@
+<?php
+require(__DIR__ . "/../../partials/nav.php");
+?>
 <canvas id="canvas" width="600" height="400" tabindex="1"></canvas>
 <script>
 
