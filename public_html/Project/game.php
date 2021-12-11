@@ -107,6 +107,15 @@ function endGame() {
   context.font = '24px Arial';
   context.textAlign = 'center';
   context.fillText('Game Over. Final Score: ' + score, canvas.width / 2, canvas.height / 2);
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function (){
+    location.reload();
+  
+    document.getElementById("demo").innerHTML = this.responseText;
+  }
+  xhttp.open("POST", "api/save_scores.php");
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(`score=${score}`);
 }
 
 // Listen for keydown events
