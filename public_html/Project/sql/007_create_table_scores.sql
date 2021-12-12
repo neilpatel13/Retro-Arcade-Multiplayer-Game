@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS ame_Scores
+CREATE TABLE IF NOT EXISTS game_Scores
 (
     id int AUTO_INCREMENT PRIMARY KEY,
     score int,
