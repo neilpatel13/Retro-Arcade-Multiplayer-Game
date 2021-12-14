@@ -3,6 +3,9 @@ require_once(__DIR__ . "/../../partials/nav.php");
 is_logged_in(true);
 ?>
 <?php
+
+
+
 if (isset($_POST["save"])) {
     $email = se($_POST, "email", null, false);
     $username = se($_POST, "username", null, false);
@@ -84,9 +87,28 @@ if (isset($_POST["save"])) {
 <?php
 $email = get_user_email();
 $username = get_username();
+$user_id = get_user_id();
 ?>
 <div class="container-fluid">
     <h1>Profile</h1>
+    <div>
+        <?php $scores = get_latest_scores($user_id); ?>
+        <h3>Score History:</h3>
+        <table class="table text-dark">
+            <thead>
+                <th>Score</th>
+                <th>Time</th>
+            </thead>
+            <tbody>
+                <?php foreach ($scores as $score) : ?>
+                    <tr>
+                        <td><?php se($score, "score", 0); ?></td>
+                        <td><?php se($score, "modified", "-"); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
     <form method="POST" onsubmit="return validate(this);">
         <div class="mb-3">
             <label class="form-label" for="email">Email</label>
@@ -113,6 +135,7 @@ $username = get_username();
         <input type="submit" class="mt-3 btn btn-primary" value="Update Profile" name="save" />
     </form>
 </div>
+
 <script>
     function validate(form) {
         let pw = form.newPassword.value;
