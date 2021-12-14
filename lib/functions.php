@@ -141,7 +141,7 @@ function save_score( $user_id, $score, $showFlash = false)
         return;
     }
     $db = getDB();
-    $stmt = $db->prepare("INSERT INTO Scores (user_id, score) VALUES (:uid, :score)");
+    $stmt = $db->prepare("INSERT INTO game_Scores (user_id, score) VALUES (:uid, :score)");
     try {
         $stmt->execute([":uid" => $user_id, ":score" => $score]);
         if ($showFlash) {

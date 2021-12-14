@@ -133,7 +133,119 @@
       - Screenshot #1 ![image](https://user-images.githubusercontent.com/90282158/141398361-f2b510f8-46e3-4fbe-bc3b-7ca16e825297.png)
         - Screenshot #1 Users updating their profile information and update their password
 - Milestone 2
-<table><tr><td>milestone 2</td></tr><tr><td><table><tr><td>F1 - Pick a simple game to implement, anything that generates a score that’s more advanced than a simple random number generator (may build off of a sample from the site shared in class) (2021-12-05)</td></tr><tr><td>Status: pending</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F1 - The game that I will be implementing will be something like Space Invaders<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p>The game will have the player at the left side of the area shooting down enemy ships for points. The enemy ships will slowly coming down to the player and firre back at the player. The player must avoid the enemy ships and not get hit from other ships. there will be multiple types of ships with each type beeing different amounts of points.</td></tr></td></tr></table></td></tr><table><tr><td>F2 - The system will save the user’s score at the end of the game if the user is logged in ()</td></tr><tr><td>Status: pending</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F2 - item 1<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><table><tr><td>F3 - The user will be able to see their last 10 scores (2021-12-05)</td></tr><tr><td>Status: pending</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F3 - item 1<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><table><tr><td>F4 - Create functions that output the following scoreboards (this will be used later) (2021-12-05)</td></tr><tr><td>Status: pending</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F4 - item 1<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr></td></tr></table>
+
+<table>
+<tr><td>milestone 2</td></tr><tr><td>
+<table>
+<tr><td>F1 - Pick a simple game to implement, anything that generates a score that’s more advanced than a simple random number generator (may build off of a sample from the site shared in class) (2021-12-05)</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://np656-prod.herokuapp.com/Project/game.php](https://np656-prod.herokuapp.com/Project/game.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/neilpatel13/it202-011/pull/38](https://github.com/neilpatel13/it202-011/pull/38)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F1 - The game that I will be implementing will be something like Space Invaders</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/90282158/145902692-46e330d5-c5da-4003-b92b-d6629b8e330b.png">
+<p>The game will have the player at the left side of the area shooting down enemy ships for points. The enemy ships will slowly coming down to the player and firre back at the player. The player must avoid the enemy ships and not get hit from other ships. there will be multiple types of ships with each type beeing different amounts of points.</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F2 - The system will save the user’s score at the end of the game if the user is logged in ()</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://np656-prod.herokuapp.com/Project/save_scores.php](https://np656-prod.herokuapp.com/Project/save_scores.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/neilpatel13/it202-011/pull/69](https://github.com/neilpatel13/it202-011/pull/69)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F2 - Website showing score is saved</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/90282158/145904607-afcd8541-4d91-4ba8-9182-1d8d45378a3a.png">
+<p>Game saving score if user is logged in
+</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F2 - There should be a scores table (id, user_id, score, created) / Each received score is a new entry (scores will not be updated)</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/90282158/145908292-cbfb2427-20ff-43be-8f3d-5793bc51c04a.png">
+<p>Score table in database and showing how each new score is recorded
+</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F3 - The user will be able to see their last 10 scores (2021-12-05)</td></tr>
+<tr><td>Status: pending</td></tr>
+<tr><td>Links:</td></tr>
+<tr><td>PRs:</td></tr>
+<tr><td>
+<table>
+<tr><td>F3 - item 1</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/808080/ffffff?text=pending"></td></tr>
+
+<tr><td>
+<img width="768px" src="">
+<p></p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F4 - Create functions that output the following scoreboards (this will be used later) (2021-12-05)</td></tr>
+<tr><td>Status: pending</td></tr>
+<tr><td>Links:</td></tr>
+<tr><td>PRs:</td></tr>
+<tr><td>
+<table>
+<tr><td>F4 - item 1</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/808080/ffffff?text=pending"></td></tr>
+
+<tr><td>
+<img width="768px" src="">
+<p></p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr></td></tr></table>
 - Milestone 3
 
 - [ ] \(mm/dd/yyyy of completion) Users will have points associated with their account.
