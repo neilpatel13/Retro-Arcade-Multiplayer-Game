@@ -166,7 +166,7 @@
 <tr><td>Status: complete</td></tr>
 <tr><td>Links:<p>
 
- [https://np656-prod.herokuapp.com/Project/save_scores.php](https://np656-prod.herokuapp.com/Project/save_scores.php)</p></td></tr>
+ [https://np656-prod.herokuapp.com/Project/game.php](https://np656-prod.herokuapp.com/Project/game.php)</p></td></tr>
 <tr><td>PRs:<p>
 
  [https://github.com/neilpatel13/it202-011/pull/69](https://github.com/neilpatel13/it202-011/pull/69)</p></td></tr>
@@ -206,17 +206,21 @@
 </tr>
 <table>
 <tr><td>F3 - The user will be able to see their last 10 scores (2021-12-05)</td></tr>
-<tr><td>Status: pending</td></tr>
-<tr><td>Links:</td></tr>
-<tr><td>PRs:</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://np656-prod.herokuapp.com/Project/profile.php](https://np656-prod.herokuapp.com/Project/profile.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/neilpatel13/it202-011/pull/70](https://github.com/neilpatel13/it202-011/pull/70)</p></td></tr>
 <tr><td>
 <table>
-<tr><td>F3 - item 1</td></tr>
+<tr><td>F3 - The user will be able to see their last 10 scores, Show on their profile page, Ordered by most recent</td></tr>
 <tr><td>Status: 
-<img width="100" height="20" src="https://via.placeholder.com/400x120/808080/ffffff?text=pending"></td></tr>
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
 
 <tr><td>
-<img width="768px" src="">
+<img width="768px" src="https://user-images.githubusercontent.com/90282158/145919880-d030be92-606e-4073-bd59-99006c0def93.png">
 <p></p>
 </td></tr>
 
@@ -227,18 +231,23 @@
 </tr>
 <table>
 <tr><td>F4 - Create functions that output the following scoreboards (this will be used later) (2021-12-05)</td></tr>
-<tr><td>Status: pending</td></tr>
-<tr><td>Links:</td></tr>
-<tr><td>PRs:</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://np656-prod.herokuapp.com/Project/profile.php](https://np656-prod.herokuapp.com/Project/profile.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/neilpatel13/it202-011/pull/70](https://github.com/neilpatel13/it202-011/pull/70)</p></td></tr>
 <tr><td>
 <table>
-<tr><td>F4 - item 1</td></tr>
+<tr><td>F4 - Code to get top ten score board, </td></tr>
 <tr><td>Status: 
-<img width="100" height="20" src="https://via.placeholder.com/400x120/808080/ffffff?text=pending"></td></tr>
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
 
 <tr><td>
-<img width="768px" src="">
-<p></p>
+<img width="768px" src="https://user-images.githubusercontent.com/90282158/145919977-dec21f94-ac99-4456-9776-bad9f5c2cfca.png">
+<p>Code to get top ten score board, currently competitons hasn't been built yet, so no scorboards can be shown right now.
+</p>
 </td></tr>
 
 </td>
