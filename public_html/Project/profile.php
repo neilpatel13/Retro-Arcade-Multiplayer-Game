@@ -152,7 +152,7 @@ try {
                 <?php foreach ($scores as $score) : ?>
                     <tr>
                         <td><?php se($score, "score", 0); ?></td>
-                        <td><?php se($score, "created", "-"); ?></td>
+                        <td><?php se($score, "modified", "-"); ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
