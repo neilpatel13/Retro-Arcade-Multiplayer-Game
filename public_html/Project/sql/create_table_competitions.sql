@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS BGD_Competitions(
+CREATE TABLE IF NOT EXISTS Game_Competition(
     -- Remember to refer to your proposal for your exact columns
     id int AUTO_INCREMENT PRIMARY KEY,
     title varchar(240) not null,
