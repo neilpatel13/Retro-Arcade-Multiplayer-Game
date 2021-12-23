@@ -856,6 +856,9 @@
 </td>
 </tr></td></tr></table>
 
+- Final Demo: 
+https://mediaspace.njit.edu/media/Arcade+Project+Final+Demo/1_5ydcusv8
+
 ### Intructions
 #### Don't delete this
 1. Pick one project type
