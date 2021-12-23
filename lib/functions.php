@@ -221,137 +221,30 @@ function get_best_score($user_id)
     return 0;
 }
 //snippet from my functions.php
-function refresh_account_balance()
-{
-    if (is_logged_in()) {
-        //cache account balance via BGD_Bills_History history
-        $query = "UPDATE BGD_Accounts set balance = (SELECT IFNULL(SUM(diff), 0) from BGD_Points_History WHERE src = :src) where id = :src";
-        $db = getDB();
-        $stmt = $db->prepare($query);
-        try {
-            $stmt->execute([":src" => get_user_account_id()]);
-            get_or_create_account(); //refresh session data
-        } catch (PDOException $e) {
-            flash("Error refreshing account: " . var_export($e->errorInfo, true), "danger");
-        }
-    }
-}
-//snippet from my functions.php
-/**
- * Will fetch the account of the logged in user, or create a new one if it doesn't exist yet.
- * Exists here so it may be called on any desired page and not just login
- * Will populate/refresh $_SESSION["user"]["account"] regardless.
- * Make sure this is called after the session has been set
- */
-function get_or_create_account()
-{
-    if (is_logged_in()) {
-        //let's define our data structure first
-        //id is for internal references, account_number is user facing info, and balance will be a cached value of activity
-        $account = ["id" => -1, "account_number" => false, "balance" => 0];
-        //this should always be 0 or 1, but being safe
-        $query = "SELECT id, account, balance from BGD_Accounts where user_id = :uid LIMIT 1";
-        $db = getDB();
-        $stmt = $db->prepare($query);
-        try {
-            $stmt->execute([":uid" => get_user_id()]);
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            if (!$result) {
-                //account doesn't exist, create it
-                $created = false;
-                //we're going to loop here in the off chance that there's a duplicate
-                //it shouldn't be too likely to occur with a length of 12, but it's still worth handling such a scenario
-
-                //you only need to prepare once
-                $query = "INSERT INTO BGD_Accounts (account, user_id) VALUES (:an, :uid)";
-                $stmt = $db->prepare($query);
-                $user_id = get_user_id(); //caching a reference
-                $account_number = "";
-                $aid = -1;
-                while (!$created) {
-                    try {
-                        $account_number = 10;
-                        $stmt->execute([":an" => $account_number, ":uid" => $user_id]);
-                        $created = true; //if we got here it was a success, let's exit
-                        $aid = $db->lastInsertId();
-                        flash("Welcome! Your account has been created successfully", "success");
-                        change_bills(10, "welcome", -1, $aid, "Welcome bonus!");
-                    } catch (PDOException $e) {
-                        $code = se($e->errorInfo, 0, "00000", false);
-                        //if it's a duplicate error, just let the loop happen
-                        //otherwise throw the error since it's likely something looping won't resolve
-                        //and we don't want to get stuck here forever
-                        if (
-                            $code !== "23000"
-                        ) {
-                            throw $e;
-                        }
-                    }
-                }
-                //loop exited, let's assign the new values
-                $account["id"] = $aid;
-                $account["account_number"] = $account_number;
-            } else {
-                //$account = $result; //just copy it over
-                $account["id"] = $result["id"];
-                $account["account_number"] = $result["account"];
-                $account["balance"] = $result["balance"];
-            }
-        } catch (PDOException $e) {
-            flash("Technical error: " . var_export($e->errorInfo, true), "danger");
-        }
-        $_SESSION["user"]["account"] = $account; //storing the account info as a key under the user session
-        if (isset($created) && $created) {
-            refresh_account_balance();
-        }
-        //Note: if there's an error it'll initialize to the "empty" definition around line 161
-
-    } else {
-        flash("You're not logged in", "danger");
-    }
-}
-//snippet from my functions.php
 /**
  * Points should be passed as a positive value.
  * $src should be where the points are coming from
  * $dest should be where the points are going
  */
-function change_bills($points, $reason, $src = -1, $dest = -1, $memo = "")
+/**function change_points($points, $reason, $user_id)
 {
     //I'm choosing to ignore the record of 0 point transactions
-    if ($points > 0) {
-        $query = "INSERT INTO BGD_Points_History (src, dest, diff, reason, memo) 
-            VALUES (:acs, :acd, :pc, :r,:m), 
-            (:acs2, :acd2, :pc2, :r, :m)";
-        //I'll insert both records at once, note the placeholders kept the same and the ones changed.
-        $params[":acs"] = $src;
-        $params[":acd"] = $dest;
-        $params[":r"] = $reason;
-        $params[":m"] = $memo;
-        $params[":pc"] = ($points * -1);
-
-        $params[":acs2"] = $dest;
-        $params[":acd2"] = $src;
-        $params[":pc2"] = $points;
+    if (is_logged_in()) 
+    {
+        $query = "INSERT INTO Points_History (points, reason, user_id) 
+            VALUES (:points, :reason, :user_id)";
+        $params[":reason"] = $reason;
+        $params[":user_id"] = $user_id;
+        $params[":pc"] = ($points);
         $db = getDB();
         $stmt = $db->prepare($query);
-        try {
-            $stmt->execute($params);
-            //Only refresh the balance of the user if the logged in user's account is part of the transfer
-            //this is needed so future features don't waste time/resources or potentially cause an error when a calculation
-            //occurs without a logged in user
-            if ($src == get_user_account_id() || $dest == get_user_account_id()) {
-                refresh_account_balance();
-            }
-        } catch (PDOException $e) {
-            flash("Transfer error occurred: " . var_export($e->errorInfo, true), "danger");
+        try 
+        {
+            $stmt->execute($params); 
+        }   
+        catch (PDOException $e) 
+        { 
+            error_log("Error fetching best score for user $user_id: " . var_export($e->errorInfo, true));
         }
     }
-}
-function get_user_account_id()
-{
-    if(is_logged_in() && isset($_SESSION["user"]["account"])) {
-        return (int)se($_SESSION["user"]["account"], "id", 0, false);
-    }
-    return 0;
-}
+} */
