@@ -204,3 +204,47 @@ function get_top_10($duration = "day")
     }
     return $results;
 }
+function get_best_score($user_id)
+{
+    $query = "SELECT score from BGD_Scores WHERE user_id = :id ORDER BY score desc LIMIT 1";
+    $db = getDB();
+    $stmt = $db->prepare($query);
+    try {
+        $stmt->execute([":id" => $user_id]);
+        $r = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($r) {
+            return (int)se($r, "score", 0, false);
+        }
+    } catch (PDOException $e) {
+        error_log("Error fetching best score for user $user_id: " . var_export($e->errorInfo, true));
+    }
+    return 0;
+}
+//snippet from my functions.php
+/**
+ * Points should be passed as a positive value.
+ * $src should be where the points are coming from
+ * $dest should be where the points are going
+ */
+/**function change_points($points, $reason, $user_id)
+{
+    //I'm choosing to ignore the record of 0 point transactions
+    if (is_logged_in()) 
+    {
+        $query = "INSERT INTO Points_History (points, reason, user_id) 
+            VALUES (:points, :reason, :user_id)";
+        $params[":reason"] = $reason;
+        $params[":user_id"] = $user_id;
+        $params[":pc"] = ($points);
+        $db = getDB();
+        $stmt = $db->prepare($query);
+        try 
+        {
+            $stmt->execute($params); 
+        }   
+        catch (PDOException $e) 
+        { 
+            error_log("Error fetching best score for user $user_id: " . var_export($e->errorInfo, true));
+        }
+    }
+} */
